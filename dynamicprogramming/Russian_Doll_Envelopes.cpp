@@ -24,6 +24,25 @@ int main()
     }
 
     sort(v.begin(),v.end(),cmp);
+    int dp[n];
+    dp[0]=1;
+    int maxnum=1;
+    for(i=1;i<n;i++)
+    {
+        dp[i]=1;
+        for(int j=i-1;j>0;j--)
+        {
+            if(v[i].first>v[j].first and v[i].second>v[j].second)
+            {
+                dp[i]=max(dp[i],dp[j]+1);
+            }
+            
+        }
+        maxnum=max(dp[i],maxnum);
+    }
+    cout<<maxnum;
+
+
 
 
     return 0;
