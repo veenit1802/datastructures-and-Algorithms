@@ -35,3 +35,39 @@ int main()
     cout<<n;
     cout<<Longest_Palindromic_Sequence(s,0,n-1);
 }
+
+
+
+/*
+   bottom up approach
+
+   int dp[n][n];
+   memset(dp,0,sizeof(dp));
+
+    int i,j,k;
+
+    for(k=0;k<str.length();k++)
+    {
+        for(i=0,j=k;i<str.length() and j<str.length();i++,j++)
+        {
+            if(i==j)
+            {
+                dp[i][j]=1;
+            }
+            else if(k==1)
+            {
+                dp[i][j]=s[i]==s[j]?2:1;
+            }
+            else
+            {
+                if(s[i]==s[j])
+                {
+                    dp[i][j]=2+d[i+1][j-1];
+                }
+                else{
+                    dp[i][j]=max(dp[i][j-1],dp[i+1][j]);
+                }
+            }
+        }
+    }
+*/
